@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="format-detection" content="telephone=no" />
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+        <link rel="stylesheet" type="text/css" href="css/index.css" />
+        <link rel="stylesheet" href="http://code.jquery.com/mobile/1.3.1/jquery.mobile-1.3.1.min.css" />
+		<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+		<script src="http://code.jquery.com/mobile/1.3.1/jquery.mobile-1.3.1.min.js"></script>
+        <title>MooseuM</title>
+    </head>
+	    
+	  <body onload="init();">
+	  
+		<div data-role="page" id="loading-page">
+			<a href="#" class="loadBtn">
+				<img src="img/logo-mooseum.jpg">
+			</a>
+		</div> 
+		
+		<div data-role="page" id="button-page">
+			<a href="#" class="scanBtn">
+	           <img class="toscan" src="img/shazium-mic.gif">
+	        </a>
+		</div>
+		
+		<div data-role="page" id="scan-page">
+			<a href="#" class="scanCamera">
+	           <img src="img/scan.png">
+	        </a>
+		</div>
+		
+		<div data-role="page" id="exhibit-page">
+			<div data-role="header">
+				<img class="exhibit" src="img/tablou.jpg">
+			</div>
+			<div data-role="content">
+				<button data-theme="c">
+					<img class="play" src="img/play.png">
+				</button>
+				<p class="description">
+				Batalia de la Waterloo a avut loc la 18 iunie 1815, in apropierea 
+				localitatii Waterloo din Belgia de astazi, la 18 kilometri sud de
+				Bruxelles, opunand o armata franceza condusa de Imparatul Napoleon
+				unei armate a celei de-a Saptea Coalitii, aflate sub comanda ducelui
+				de Wellington si a feldmaresalului von Blucher. Batalia s-a incheiat 
+				cu victoria decisiva anglo-aliatilor si prusacilor, victorie ce 
+				pecetluieste practic sfarsitul Imperiului napoleonian.
+				</p>
+			</div>
+		</div> 
+	
+	
+		
+	<!--  	<script type="text/javascript" charset="utf-8" src="index.js"></script> -->
+		<script type="text/javascript" charset="utf-8" src="js/index.js"></script>
+		<script type="text/javascript" charset="utf-8" src="js/barcodescanner.js"></script>
+				
+	  </body>
+</html>

@@ -1,0 +1,9 @@
+com.mds.apg.contentselection=example
+com.mds.apg.jqmcheck=true
+com.mds.apg.jqmdir=/home/itnt/Downloads/jquery.mobile-1.3.1
+com.mds.apg.jqmuseinstalled=true
+com.mds.apg.pguseinstalled=true
+com.mds.apg.pgversion=1.9.0
+com.mds.apg.phonegap=/home/itnt/Downloads/phonegap-2.9.0
+com.mds.apg.source=/home/itnt/Downloads/phonegap-2.9.0/lib/android/example/assets/www
+eclipse.preferences.version=1

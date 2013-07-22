@@ -1,7 +1,0 @@
-INDEX VERSION 1.126+/home/itnt/workspace/.metadata/.plugins/org.eclipse.jdt.core
-2198804944.index
-930647502.index
-4199004398.index
-1144039145.index
-1482623872.index
-2040477148.index

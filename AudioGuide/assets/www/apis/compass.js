@@ -15,7 +15,7 @@ function scanExhibit() {
 			    // build exhibit screen
 			    $('h2#x-name').html(response['title']);
 			    $('blockquote#x-description').html(response['description']);
-			    $('#x-image').src(response['image']);
+			    $('#x-image').attr("src",response['image']);
 			    // activate exhibit screen
 		        $('.api-div').hide();
 		        $('#api-exhibit').show();

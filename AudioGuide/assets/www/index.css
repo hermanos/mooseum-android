@@ -22,6 +22,10 @@ h3 {
  	text-decoration: none;
 	margin-bottom: 2.0em;
 }
+.logo-img{
+	width: 100%;
+	height: 100%;
+}
 code { 
 	font-weight: bold; 
 	font-size: 1.1em;
@@ -162,6 +166,17 @@ ul #listdivider {
  	border-left: 6px solid #188f69;
 }
 
+.content-primary{
+	padding: 0px;
+	margin: 0px;
+}
+.ui-content{
+	padding: 0px;
+	margin: 0px;
+}
+#api-exhibit{
+	background-image: url("img/background.jpg");
+}
 @media all and (min-width: 500px) and (orientation:landscape), 
 				(min-width: 800px) and (orientation:portrait) 
 				{	
@@ -308,3 +323,4 @@ ul #listdivider {
 		font-size: 1.1em;
 	}
 }
+

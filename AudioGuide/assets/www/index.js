@@ -27,4 +27,7 @@ $('#page-home').live('pageinit', function(event){
         $(api).show();
     });
     
+    $('a#scan-exhibit').click(function(){
+        scanExhibit();
+    });
 });

@@ -1,0 +1,201 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-type" name="viewport"
+	content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no, width=device-width">
+<title>Moooseum</title>
+
+<!-- CDN Respositories: For production, replace lines above with these uncommented minified versions -->
+<link rel="stylesheet" href="http://code.jquery.com/mobile/1.1.0/jquery.mobile-1.1.0.min.css" />
+<script src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
+<script src="http://code.jquery.com/mobile/1.1.0/jquery.mobile-1.1.0.min.js"></script>
+
+<link rel="stylesheet" href="index.css" />
+<script type="text/javascript" charset="utf-8" src="cordova.js"></script>
+<script type="text/javascript" charset="utf-8" src="index.js"></script>
+
+</head>
+
+<body onload="init();">
+	<div data-role="page" id="page-home" class="type-interior"
+		data-theme="a">
+
+		<div data-role="header" data-theme="a">
+			<h1>Mooseum</h1>
+			<a href="#" data-icon="home" data-iconpos="notext" id="intro" class="ui-btn-right">
+				home
+			</a>
+		</div>
+
+		<div data-role="content" data-theme="c">
+			<div class="content-primary">
+				<div class="api-div" id="api-intro">
+					<a id="click-compass" data-role="button" class="ui-block-a">
+						Scan exhibit 
+					</a>
+				</div>
+
+				<div class="api-div" id="api-compass">
+					<h2>Scan exhibit</h2>
+					<blockquote>
+						<p>Scans the exhibit</p>
+					</blockquote>
+					<h4 class="help">
+						<b>Scan</b> to identify
+					</h4>
+
+					<div class="ui-grid-a">
+						<div class="ui-block-a">
+							<div data-role="button" onclick="scanExhibit();">
+								Scan exhibit
+							</div>
+						</div>
+					</div>
+					<div>
+						Status: <b id="status"></b>
+					</div>
+					<div>
+						Exhibit: <b id="description"></b>
+					</div>
+				</div>
+
+				<div class="api-div" id="api-exhibit">
+					<h2 id="x-name"></h2>
+					<blockquote id="x-description"></blockquote>
+					<div>player audio</div>
+					<div>images</div>
+				</div>
+				<!-- 
+		    <div class="api-div" id="api-camera">
+                <h2>Camera</h2>
+				<blockquote>
+  					<p>The <code>camera</code> object provides access to the device's default camera application.</p>
+				</blockquote>
+				<h4 class="help"><b>Take a Picture</b> using device camera.<br/>
+				<b>Select</b> to get picture from album or library.</h4>
+				<div class="ui-grid-a">
+					<div class="ui-block-a"><div data-role="button" onclick="take_pic();">Take a Picture</div></div>
+					<div class="ui-block-b"><div data-role="button" onclick="album_pic();">Select</div></div>
+				</div>				
+      			<img id="cameraImage" src="" />
+			</div>
+
+		    <div class="api-div" id="api-connection">
+				<h2>Connection</h2>
+				<blockquote>
+  					<p>The <code>connection</code> object gives access to the device's cellular and wifi connection information.</p>
+				</blockquote>
+   				<div data-role="button" onclick="check_network();">Check Connection</div>
+   				<div>Connection: <b id="connection"></b></div>    
+			</div>
+
+		    <div class="api-div" id="api-geolocation">
+				<h2>Geolocation</h2>
+				<blockquote>
+  					<p>The <code>geolocation</code> object provides access to the device's GPS sensor.</p>
+				</blockquote>
+				<h4 class="help"><b>Toggle</b> to stop/start
+				geolocation watch. <br/><b>Get Current</b> for one-time geolocation reading.</h4>
+				<div class="ui-grid-a">
+					<div class="ui-block-a"><div data-role="button" onclick="toggleWatchPosition();">Toggle</div></div>
+					<div class="ui-block-b"><div data-role="button" onclick="getCurrentPosition();">Get Current</div></div>
+				</div>
+   				<div id="cur_position"></div>
+   				<img id="map"/>								
+			</div>
+
+		    <div class="api-div" id="api-media">
+				<h2>Media</h2>
+				<blockquote>
+  					<p>The <code>Media</code> object provides the ability to record and play back audio files on a device. </p>
+				</blockquote>
+				<b>Play MP3 Song</b>
+				<div data-role="controlgroup" data-type="horizontal">				
+					<div data-role="button" id="playaudio" class="wider-btn" data-theme="b">&nbsp;Play&nbsp;</div>
+					<div data-role="button" id="pauseaudio" class="wider-btn" data-theme="b">Pause</div>
+					<div data-role="button" id="stopaudio" class="wider-btn" data-theme="b">&nbsp;Stop&nbsp;</div>	
+				<div class="ui-grid-a">
+					<div class="ui-block-a"> Current: <span id="audio_position">0 sec</span></div>
+					<div class="ui-block-b">Total: <span id=media_dur>0</span> sec</div>
+				</div>
+				</div>
+				<b>Live Audio Recording (5 sec)</b>
+ 				<div data-role="controlgroup" data-type="horizontal">	
+ 					<div data-role="button" id="startRecord" class="wider-btn" data-theme="b">Record Audio</div>
+ 					<div data-role="button" id="playbackRecord" class="wider-btn" data-theme="b">&nbsp;Playback&nbsp;</div>
+				<div class="ui-grid-a">
+   					<div class="ui-block-a">Status: <span id="record-status"></span></div>
+   					<div class="ui-block-b"><span id="record-time"></span></div>
+   				</div>
+				</div>
+			</div>
+
+		    <div class="api-div" id="api-notification">
+				<h2>Notification</h2>
+				<blockquote>
+  					<p>Visual, audible, and tactile device notifications.</p>
+				</blockquote>
+				<fieldset class="ui-grid-a">
+					<div class="ui-block-a"><button onclick="showAlert();" data-theme="c" data-icon="alert">Alert</button></div>
+					<div class="ui-block-b"><button onclick="showConfirm();" data-theme="c" data-icon="check">Confirm</button></div>	   
+				</fieldset>				
+				<fieldset class="ui-grid-a">
+					<div class="ui-block-a"><button onclick="beep();" data-theme="b">Beep</button></div>
+					<div class="ui-block-b"><button onclick="vibrate();" data-theme="b">Vibrate</button></div>	   
+				</fieldset>				
+			</div>
+
+		    <div class="api-div" id="api-storage">
+				<h2>Storage</h2>
+				<blockquote>
+  					<p>Provides access to the devices storage options.</p>
+				</blockquote>
+				<h4 class="help">Based on <strong>W3C Web SQL Database Spec</strong> and <strong>W3C Web Storage API Spec</strong></h4>							
+				<div data-role="controlgroup">
+					<div data-role="button" onclick="createDB();">Create DB</div>
+					<div data-role="button" onclick="getSqlResultSet();">SQL Result Set</div>
+					<div class="ui-grid-a">
+					SQL Result: <br/><span id="sql-result"></span><br/>
+					</div>
+				</div>
+				
+				<div data-role="controlgroup">
+					<div data-role="button" onclick="writeLocalStorage();">Write LocalStorage</div>
+					<div data-role="button" onclick="readLocalStorage();">Read LocalStorage</div>
+					<div data-role="button" onclick="removeItemLocalStorage();">Remove Item</div>
+					<div class="ui-grid-a">
+					Local Storage: <span id="local-storage-result"></span><br/>
+					</div>
+				</div>
+			</div>
+
+ -->
+			</div>
+		</div>
+
+		<div data-role="footer" data-position="fixed" class="footer-docs"
+			data-theme="a">
+			<p>&copy; 2013 ITNT Bootcamp</p>
+		</div>
+	</div>
+
+	<!-- 	<script type="text/javascript" charset="utf-8" src="apis/accelerometer.js"></script>
+	<script type="text/javascript" charset="utf-8" src="apis/camera.js"></script>
+ -->
+	<script type="text/javascript" charset="utf-8"
+		src="apis/barcodescanner.js"></script>
+	<script type="text/javascript" charset="utf-8" src="apis/compass.js"></script>
+	<!--
+ 	<script type="text/javascript" charset="utf-8" src="apis/capture.js"></script>
+	<script type="text/javascript" charset="utf-8" src="apis/connection.js"></script>
+	<script type="text/javascript" charset="utf-8" src="apis/contacts.js"></script>
+	<script type="text/javascript" charset="utf-8" src="apis/device.js"></script>
+	<script type="text/javascript" charset="utf-8" src="apis/events.js"></script>
+	<script type="text/javascript" charset="utf-8" src="apis/file.js"></script>
+	<script type="text/javascript" charset="utf-8" src="apis/geolocation.js"></script>
+	<script type="text/javascript" charset="utf-8" src="apis/media.js"></script>
+	<script type="text/javascript" charset="utf-8" src="apis/notification.js"></script>
+	<script type="text/javascript" charset="utf-8" src="apis/storage.js"></script> 			
+ -->
+</body>
+</html>

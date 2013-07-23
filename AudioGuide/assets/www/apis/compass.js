@@ -21,8 +21,9 @@ function scanExhibit() {
 		        $('#api-exhibit').show();
 		    },
 		    error      : function() {
-			    $('#status').html('error');
-			    $('#description').html('Te crezi hacker? Nu am gasit exponat!');
+		    	$('#link-content').html(result.text);
+		    	$('#api-compass').hide();
+			    $('#api-er').show();
 		    }
 		});     
 	}, function(error) {

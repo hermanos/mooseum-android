@@ -30,4 +30,9 @@ $('#page-home').live('pageinit', function(event){
     $('a#scan-exhibit').click(function(){
         scanExhibit();
     });
+
+    $('#to-scan').click(function(){
+        $('#api-er').hide();
+        $('#api-compass').show();
+    });
 });

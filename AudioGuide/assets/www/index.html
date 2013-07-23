@@ -35,41 +35,23 @@
 		<div data-role="content" data-theme="c">
 			<div class="content-primary">
 				<div class="api-div" id="api-intro">
-					<a id="click-compass" data-role="button" class="ui-block-a">
-						Scan exhibit 
+					<a id="click-compass">
+						<img src="img/logo-mooseum.jpg" class="logo-img">
 					</a>
 					<script>startSpeech("result","eng");</script>
 				</div>
 
 				<div class="api-div" id="api-compass">
-					<h2>Scan exhibit</h2>
-					<blockquote>
-						<p>Scans the exhibit</p>
-					</blockquote>
-					<h4 class="help">
-						<b>Scan</b> to identify
-					</h4>
-
-					<div class="ui-grid-a">
-						<div class="ui-block-a">
-							<div data-role="button" onclick="scanExhibit();">
-								Scan exhibit
-							</div>
-						</div>
-					</div>
-					<div>
-						Status: <b id="status"></b>
-					</div>
-					<div>
-						Exhibit: <b id="description"></b>
-					</div>
+							<a id="scan-exhibit">
+								<img src="img/mooseum-buton-mic.gif" class="logo-img">
+							</a>
 				</div>
 
 				<div class="api-div" id="api-exhibit">
 					<h2 id="x-name"></h2>
+					<div><img src="#" id="x-image"></div><br>
+					<audio controls><source src="#" type="audio/ogg"></audio><br>
 					<blockquote id="x-description"></blockquote>
-					<div>player audio</div>
-					<div><img src="#" id="x-image"/></div>
 				</div>
 				<!-- 
 		    <div class="api-div" id="api-camera">

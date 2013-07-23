@@ -12,7 +12,12 @@
 
 <link rel="stylesheet" href="index.css" />
 <script type="text/javascript" charset="utf-8" src="cordova.js"></script>
+<script type="text/javascript" charset="utf-8" src="tts.js"></script>
 <script type="text/javascript" charset="utf-8" src="index.js"></script>
+<script type="text/javascript" charset="utf-8"
+		src="apis/barcodescanner.js"></script>
+<script type="text/javascript" charset="utf-8" src="apis/compass.js"></script>
+<script type="text/javascript" charset="utf-8" src="tsp.js"></script>
 
 </head>
 
@@ -33,6 +38,7 @@
 					<a id="click-compass" data-role="button" class="ui-block-a">
 						Scan exhibit 
 					</a>
+					<script>startSpeech("result","eng");</script>
 				</div>
 
 				<div class="api-div" id="api-compass">
@@ -182,9 +188,7 @@
 	<!-- 	<script type="text/javascript" charset="utf-8" src="apis/accelerometer.js"></script>
 	<script type="text/javascript" charset="utf-8" src="apis/camera.js"></script>
  -->
-	<script type="text/javascript" charset="utf-8"
-		src="apis/barcodescanner.js"></script>
-	<script type="text/javascript" charset="utf-8" src="apis/compass.js"></script>
+	
 	<!--
  	<script type="text/javascript" charset="utf-8" src="apis/capture.js"></script>
 	<script type="text/javascript" charset="utf-8" src="apis/connection.js"></script>

@@ -104,5 +104,7 @@
     <!-- Deprecated plugins element. Remove in 3.0 -->
     <plugins>
     	<plugin name="BarcodeScanner" value="com.phonegap.plugins.barcodescanner.BarcodeScanner"/>
+    	<plugin name="TTS" value="com.phonegap.plugins.speech.TTS"/>
     </plugins>
+    
 </widget>

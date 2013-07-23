@@ -1,10 +1,13 @@
+
 function startSpeech(result){
 	var text = $("#x-description").text();
 	window.plugins.tts.startup(win,fail);
 	window.plugins.tts.setLanguage('en_UK',win,fail);
 	window.plugins.tts.speak(text,win,fail);
 }
-
+function stopSpeech(result){
+	window.plugins.tts.stop(win, fail);
+}
 function win(result){
 	console.log(result);
 }
@@ -15,5 +18,8 @@ function fail(result){
 $(document).ready(function(){
 	$("#play").click(function(){
 		startSpeech();
+	});
+	$("#stop").click(function(){
+		stopSpeech();
 	});
 });

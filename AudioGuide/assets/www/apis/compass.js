@@ -1,12 +1,9 @@
 function scanExhibit() {
 	window.plugins.barcodeScanner.scan( function(result) {
-
-		var jsonUrl = result.text + '.json';
-	    $('#heading').html(jsonUrl);
 		
 		$.ajax({
 		    type       : "GET",
-		    url        : jsonUrl,
+		    url        : "http://staging.mooseumapp.com/search?q="+result.text,
 		    dataType   : 'json',
 		    success    : function(response) {
 			    $('#status').html('succes');
@@ -20,10 +17,9 @@ function scanExhibit() {
 		        $('.api-div').hide();
 		        $('#api-exhibit').show();
 		    },
-		    error      : function() {
-		    	$('#link-content').html(result.text);
-		    	$('#api-compass').hide();
-			    $('#api-er').show();
+		    error      : function() {  
+			    
+			    });
 		    }
 		});     
 	}, function(error) {

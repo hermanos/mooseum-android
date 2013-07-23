@@ -3,10 +3,12 @@ function scanExhibit() {
 		
 		$.ajax({
 		    type       : "GET",
-		    url        : "http://staging.mooseumapp.com/search?q="+result.text,
+		    url        : "http://staging.mooseumapp.com/search.json",
+		    data: { q: result.text },
 		    dataType   : 'json',
 		    success    : function(response) {
-			    $('#status').html('succes');
+			    if(response['id']!=0){
+			    	$('#status').html('succes');
 			    $('#description').html(response['description']);
 			    
 			    // build exhibit screen
@@ -16,10 +18,10 @@ function scanExhibit() {
 			    // activate exhibit screen
 		        $('.api-div').hide();
 		        $('#api-exhibit').show();
-		    },
+			    } 
+			  },
 		    error      : function() {  
-			    
-			    });
+			    alert("Error!");
 		    }
 		});     
 	}, function(error) {

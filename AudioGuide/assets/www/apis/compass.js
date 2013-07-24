@@ -16,8 +16,12 @@ function scanExhibit() {
 			    $('blockquote#x-description').html(response['description']);
 			    $('#x-image').attr("src",response['image']);
 			    // activate exhibit screen
-		        $('.api-div').hide();
-		        $('#api-exhibit').show();
+		      $('.api-div').hide();
+		      $('#api-exhibit').show();
+			    }
+			    else{
+			    	$('.api-div').hide();
+			    	$('#api-no-exhibit').show();
 			    } 
 			  },
 		    error      : function() {  

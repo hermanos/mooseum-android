@@ -165,14 +165,20 @@ ul #listdivider {
 .api-div .help {
  	border-left: 6px solid #188f69;
 }
-
-.content-primary{
-	padding: 0px;
-	margin: 0px;
+.content-primary {
+	background-image: url("img/background.jpg");
+	background-repeat: no-repeat;
+	padding-right: 0px;
 }
 .ui-content{
 	padding: 0px;
 	margin: 0px;
+}
+img.edit-img {
+	/*display: block;
+	width: 100%;
+    margin: 0px auto;*/
+    padding: 150px 100px;
 }
 #api-exhibit{
 	background-image: url("img/background.jpg");
@@ -275,7 +281,7 @@ ul #listdivider {
 		padding-right: 1%;
 	}	
  	.type-interior .content-primary {
-		padding-right: 5%;
+		/*padding-right: 5%;*/
 	} 
 	.footer-docs {
 		display: block;

@@ -1,9 +1,44 @@
-/* Some tablets mis-report orientation, leaving white at bottom: */
-body { background-color: #d1d1d1;}
+html {
+	height: 100%;
+	margin: 0;
+	padding: 0;
+	background: url("../img/background.jpg") no-repeat center center;
+	background-size: 100% 100%;
+}
 
-h2 {
+body {
+	height: 100%;
+	margin: 0;
+	padding: 0;
+	font-size: 36px;
+	color: white;
+	overflow-y: scroll;
+}
+
+div.pages {
+	height: 100%;
+}
+
+.page {
+	display: none;
+	overflow-y: scroll;
+	height: 100%;
+}
+
+div.page a#scan-exhibit {
+	display: block;
+	width: 70%;
+	margin-left: 15%;
+	background: url("../img/buton.png") no-repeat center center;
+	background-size: 100% 100%;
+}
+
+
+
+
+/* h2 {
 	border-bottom: 1px solid #b3b3b3;
-	font-size: 1.4em; /* 1.6em; */
+	font-size: 1.4em; 1.6em;
 	font-weight: normal;
 	margin: 0.3em 0px 0.6em 0px; 
 	padding-bottom: 0.1em;
@@ -99,7 +134,7 @@ blockquote::before {
 	display: block;
 }
 .ui-btn-inner { 
-	padding: .6em 8px; /*25px;*/
+	padding: .6em 8px; 25px;
 }
 .wider-btn .ui-btn-inner {
 	padding: .6em 1.8em; 	
@@ -126,7 +161,7 @@ blockquote::before {
 }
 .type-interior .ui-content {
 	border-top: 1px solid #3f80bc;
-	/* padding-bottom: 0; */
+	padding-bottom: 0;
 }
 .content-secondary .ui-collapsible {
 	padding: 0 15px 10px;
@@ -175,9 +210,9 @@ ul #listdivider {
 	margin: 0px;
 }
 img.edit-img {
-	/*display: block;
+	display: block;
 	width: 100%;
-    margin: 0px auto;*/
+    margin: 0px auto;
     padding: 150px 100px;
 }
 #api-exhibit{
@@ -186,7 +221,7 @@ img.edit-img {
 @media all and (min-width: 500px) and (orientation:landscape), 
 				(min-width: 800px) and (orientation:portrait) 
 				{	
-/*	h1 { color: #f00; }   FOR TESTING */
+	h1 { color: #f00; }   FOR TESTING
 	h2 {
 		font-size: 1.2em;
 		margin: 0.2em 0px 0.3em;
@@ -225,16 +260,16 @@ img.edit-img {
 		border: none;
 	}
 	.content-primary {
-		width: 65%;		/* left */
+		width: 65%;		left
 		float: right;
 		margin-right: 1%;
 		padding-right: 1%;
 	}
 	.type-interior .content-primary {
-		padding: 0.5em 3% 1.5em 0; /* right */
+		padding: 0.5em 3% 1.5em 0; right
 		margin: 0;
 	}
-	/* fix up the collapsibles - expanded on desktop */
+	fix up the collapsibles - expanded on desktop
 	.content-secondary .ui-collapsible-heading {
 		display: none;
 	}
@@ -256,7 +291,7 @@ img.edit-img {
 	}
 }
 @media all and (min-width: 800px){
-/*	h1 { color: #0f0; }  FOR TESTING */
+	h1 { color: #0f0; }  FOR TESTING
 	h2 {
 		border-bottom: 2px solid #b3b3
 		b3;
@@ -281,7 +316,7 @@ img.edit-img {
 		padding-right: 1%;
 	}	
  	.type-interior .content-primary {
-		/*padding-right: 5%;*/
+		padding-right: 5%;
 	} 
 	.footer-docs {
 		display: block;
@@ -304,7 +339,7 @@ img.edit-img {
 }
 
 @media all and (min-width: 1200px){
- /*	h1 { color: #ff0; } FOR TESTING */
+ 	h1 { color: #ff0; } FOR TESTING
 		.content-secondary {
 		width: 30%;
 		padding-right:6%;
@@ -330,3 +365,4 @@ img.edit-img {
 	}
 }
 
+ */

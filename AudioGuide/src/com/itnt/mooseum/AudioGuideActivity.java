@@ -1,4 +1,4 @@
-package com.ag.test;
+package com.itnt.mooseum;
 
 import org.apache.cordova.DroidGap;
 import android.os.Bundle;

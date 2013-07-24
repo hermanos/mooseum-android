@@ -35,4 +35,9 @@ $('#page-home').live('pageinit', function(event){
         $('#api-er').hide();
         $('#api-compass').show();
     });
+
+    $("#back").click(function(){
+        $("#api-exhibit").hide();
+        $("#api-compass").show();
+    });
 });

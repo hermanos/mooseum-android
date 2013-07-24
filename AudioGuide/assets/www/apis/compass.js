@@ -9,15 +9,15 @@ function scanExhibit() {
 		    success    : function(response) {
 			    if(response['id']!=0){
 			    	$('#status').html('succes');
-			    $('#description').html(response['description']);
-			    
-			    // build exhibit screen
-			    $('h2#x-name').html(response['title']);
-			    $('blockquote#x-description').html(response['description']);
-			    $('#x-image').attr("src",response['image']);
-			    // activate exhibit screen
-		      $('.api-div').hide();
-		      $('#api-exhibit').show();
+				    $('#description').html(response['description']);
+				    
+				    // build exhibit screen
+				    $('h2#x-name').html(response['title']);
+				    $('blockquote#x-description').html(response['description']);
+				    $('#x-image').attr("src",response['image']);
+				    // activate exhibit screen
+		      	$('.api-div').hide();
+		      	$('#api-exhibit').show();
 			    }
 			    else{
 			    	$('.api-div').hide();

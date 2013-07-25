@@ -30,8 +30,9 @@ $(document).ready(function(){
 	margin = '' + (document.height - $('div.page a#scan-exhibit').height()) / 2 + 'px';
 	$('div.page#page-intro a').css('margin-top', margin);
 	
-//    $('#page-intro').show();
-    $('#page-exhibit').show();
+	
+  // $('#page-intro').show();
+   $('#page-exhibit').show();
     
     $('a#scan-exhibit').click(function(){
     	$('.page').hide();

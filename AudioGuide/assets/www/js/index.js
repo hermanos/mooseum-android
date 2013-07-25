@@ -30,8 +30,15 @@ $(document).ready(function(){
 	margin = '' + (document.height - $('div.page a#scan-exhibit').height()) / 2 + 'px';
 	$('div.page#page-intro a').css('margin-top', margin);
 	
-	
-  // $('#page-intro').show();
+	// left_distance = '' + (document.width / 2 - $("a#back").width() - $("a#play").width() / 2) + 'px';
+	// $('a#play').css('left', left_distance);
+	// console.log(left_distance);
+	height = '' + 0.8 * document.height / 5.0 + 'px';
+	console.log(height)
+	$('a#play').css('height',height);
+	$('a#play').css('width',height);
+	$('a#play').css('margin-left','-' + 0.8 * document.height / 5.0 / 2.0 + 'px');
+ //  // $('#page-intro').show();
    $('#page-exhibit').show();
     
     $('a#scan-exhibit').click(function(){

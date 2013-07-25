@@ -33,7 +33,7 @@ div.page a#scan-exhibit {
 	background-size: 100% 100%;
 }
 
-div.inner{
+div.inner {
 	margin: auto;
 	width: 100%; 
 }
@@ -42,11 +42,48 @@ img#x-image {
 	display: block;
     margin-left: auto;
     margin-right: auto;
-    width: 100%; 
+
 }
 
+div#title-bar {
+	background-color: rgba(0,0,0,0.5);
+	padding-left: 20px;
+}
 
+div#title-bar h2 {
+	margin: 0px;
+}
 
+div#bottom-bar {
+	position: fixed;
+	bottom: 0;
+	background-image: url("../img/bara.jpg");
+	background-repeat: no-repeat;
+	background-size: 100% 100%;
+	width: 100%;
+	height: 20%;
+}
+div#bottom-bar a {
+	display: inline-block;
+	width: 50px;
+	top: 10%;
+}
+div#bottom-bar a img {
+}
+a#back {
+	position: relative;
+	display: none !important;
+}
+a#play {
+	position: relative;
+	left: 50%;
+	background-image: url("../img/play.png");
+	background-size: 100% 100%;
+	background-repeat: no-repeat;
+}
+a#stop {
+	display: none !important;
+}
 /* h2 {
 	border-bottom: 1px solid #b3b3b3;
 	font-size: 1.4em; 1.6em;

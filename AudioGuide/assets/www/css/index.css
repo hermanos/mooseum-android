@@ -10,7 +10,7 @@ body {
 	height: 100%;
 	margin: 0;
 	padding: 0;
-	font-size: 36px;
+	font-size: 28px;
 	color: white;
 	overflow-y: scroll;
 }
@@ -33,25 +33,24 @@ div.page a#scan-exhibit {
 	background-size: 100% 100%;
 }
 
-div.inner {
-	margin: auto;
-	width: 100%; 
-}
-
-img#x-image {
-	display: block;
-    margin-left: auto;
-    margin-right: auto;
-
+div.outer {
+	height: 70%;
+	width: 100%;
+	text-align: center;
+	background: url("../img/cow-lat.jpg") no-repeat center center;
+	background-size: contain;
 }
 
 div#title-bar {
 	background-color: rgba(0,0,0,0.5);
 	padding-left: 20px;
+	position: relative;
+	height: 10%;
 }
 
 div#title-bar h2 {
 	margin: 0px;
+	font-size: 1em;
 }
 
 div#bottom-bar {
@@ -83,6 +82,11 @@ a#play {
 }
 a#stop {
 	display: none !important;
+}
+
+div#x-descriotion {
+	height: 70%;
+	overflow-y: scroll; 
 }
 /* h2 {
 	border-bottom: 1px solid #b3b3b3;

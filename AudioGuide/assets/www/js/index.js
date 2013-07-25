@@ -30,13 +30,22 @@ $(document).ready(function(){
 	margin = '' + (document.height - $('div.page a#scan-exhibit').height()) / 2 + 'px';
 	$('div.page#page-intro a').css('margin-top', margin);
 	
-	// left_distance = '' + (document.width / 2 - $("a#back").width() - $("a#play").width() / 2) + 'px';
-	// $('a#play').css('left', left_distance);
-	// console.log(left_distance);
-	height = '' + 0.8 * document.height / 5.0 + 'px';
-	console.log(height)
-	$('a#play').css('height',height);
-	$('a#play').css('width',height);
+	// new_img_height = '' + (0.7* document.height) + 'px';
+	// new_img_width = '' + (document.width) + 'px';
+
+	// console.log($('div.outer img#x-image').height());
+	// console.log($('div.outer img#x-image').width());
+
+	// if($('div.outer img#x-image').height() >= $('div.outer img#x-image').width()){
+	// 	$('img#x-image').height(new_img_height);
+	// }
+	// else{
+	// 	$('img#x-image').width(new_img_width);
+	// }
+
+	play_height = '' + 0.8 * document.height / 5.0 + 'px';
+	$('a#play').css('height',play_height);
+	$('a#play').css('width',play_height);
 	$('a#play').css('margin-left','-' + 0.8 * document.height / 5.0 / 2.0 + 'px');
  //  // $('#page-intro').show();
    $('#page-exhibit').show();
@@ -53,7 +62,7 @@ $(document).ready(function(){
 				    if (response['id'] !=0 ) {
 					    // build exhibit screen
 					    $('h2#x-name').html(response['title']);
-					    $('blockquote#x-description').html(response['description']);
+					    $('div#x-description').html(response['description']);
 					    $('#x-image').attr("src",response['image']);
 					    
 					    $('#page-exhibit').show();

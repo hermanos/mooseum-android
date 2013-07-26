@@ -81,14 +81,16 @@ div#bottom-bar a {
 	display: inline-block;
 	width: 50px;
 }
-div#bottom-bar a img {
-}
-a#back {
-	position: relative;
-	display: none !important;
+
+div#bottom-bar a#back {
+	position: fixed;
+	background-image: url("../img/back.png");
+	background-repeat: no-repeat;
+	background-size: 100% 100%;
+	left: -20px;
 }
 a#play {
-	position: relative;
+	position: fixed;
 	left: 50%;
 	background-image: url("../img/play.png");
 	background-size: 100% 100%;

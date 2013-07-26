@@ -56,16 +56,16 @@ div#pull-arrows {
 }
 
 div#title-bar {
-	background-color: rgba(0,0,0,0.5);
-	padding-left: 10px;
+	background-color: #222;
 	position: relative;
 	height: 5%;
+	padding-left: 10px;
 }
 
 div#title-bar h2 {
 	font-family: Helvetica;
 	margin: 0px;
-	font-size: 0.8em;
+	font-size: 0.7em;
 }
 
 div#bottom-bar {
@@ -88,9 +88,10 @@ div#bottom-bar a#back {
 	background-repeat: no-repeat;
 	background-size: 100% 100%;
 	left: -20px;
+	bottom: 20px;
 }
 a#play {
-	position: fixed;
+	position: relative;
 	left: 50%;
 	background-image: url("../img/play.png");
 	background-size: 100% 100%;
@@ -101,9 +102,21 @@ a#play.playing {
 }
 
 p#x-description {
-	height: 70%;
+	height: 80%;
 	overflow-y: scroll;
-	font-size: 0.5em; 
+	font-size: 0.6em;
+	line-height: 1.2em;
+	text-indent: 2em; 
+	background-color: #444;
+
+}
+
+div#description-container {
+	height: 80%;
+}
+
+div#arrows-active {
+	background: url("../img/sageti-jos.gif");
 }
 /* h2 {
 	border-bottom: 1px solid #b3b3b3;

@@ -20,6 +20,7 @@ $(document).ready(function(){
 	margin = '' + (document.height - $('div.page a#scan-exhibit').height()) / 2 + 'px';
 	$('div.page#page-intro a').css('margin-top', margin);
 	
+	$("div#space").height(document.height * 0.15);
 	// new_img_height = '' + (0.7* document.height) + 'px';
 	// new_img_width = '' + (document.width) + 'px';
 
@@ -43,10 +44,10 @@ $(document).ready(function(){
 	$('a#back').css('height',back_height);
 	$('a#back').css('width',back_width);
 	$('a#back').css('left','-'+ 0.3 * (1.1 * (0.1 * document.height))+'px');
-	$('a#back').css('margin-top',''+ 0.25 * (0.1 * document.height)+'px');
+	$('a#back').css('margin-top',''+ 0.9 * (0.1 * document.height)+'px');
 
-	// $('#page-intro').show();
-   	$('#page-exhibit').show();
+	$('#page-intro').show();
+   	// $('#page-exhibit').show();
     
     $('a#scan-exhibit').click(function(){
     	$('.page').hide();
@@ -77,11 +78,6 @@ $(document).ready(function(){
     });
 
     $('#back').click(function(){
-        $('.page').hide();
-        $('#page-intro').show();
-    });
-
-    $('#back').hover(function(){
     	if(!($(this).hasClass("hovered"))){
     		$(this).addClass("hovered");	
  			$(this).stop(false,false).animate({'left':'0px'},300);	
@@ -89,9 +85,9 @@ $(document).ready(function(){
     		$(this).removeClass("hovered");	
  			$(this).stop(false,false).animate({'left':'-'+ 0.3 * (1.1 * (0.1 * document.height))+'px'},300);
     	}
-    	
+        $('.page').hide();
+        $('#page-intro').show();
     });
-
 
     $("#play").click(function(){
     	if($(this).hasClass("playing")){
@@ -103,8 +99,14 @@ $(document).ready(function(){
     	}
 	});
 
-	$("#pull-arrows").click(function(){ 
-		$(".pages").scrollBottom();
+	$(".pull-arrows").click(function(){
+		if(!$(this).hasClass("arrows-active")){
+			$(this).addClass("arrows-active")
+			$("#page-exhibit").stop(false,false).animate({scrollTop:5000},1000);
+		} else {
+			$(this).removeClass("arrows-active")
+			$("#page-exhibit").stop(false,false).animate({scrollBottom:5000},1000);
+		}
 	});
 
 });

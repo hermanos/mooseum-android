@@ -1,5 +1,5 @@
 function startSpeech(result){
-	var text = $("#x-description").text();
+	var text = $("p#x-description").text();
 	window.plugins.tts.startup(win,fail);
 	window.plugins.tts.setLanguage('en_UK',win,fail);
 	window.plugins.tts.speak(text,win,fail);
@@ -13,16 +13,6 @@ function win(result){
 function fail(result){
 	alert("Error initializing Text to Speech engine: "+result);
 }
-
-$(document).ready(function(){
-	$("#play").click(function(){
-		startSpeech();
-	});
-	$("#stop").click(function(){
-		stopSpeech();
-	});
-});
-
 
 $(document).ready(function(){
 	
@@ -49,7 +39,7 @@ $(document).ready(function(){
 	$('a#play').css('margin-left','-' + 0.8 * document.height / 5.0 / 2.0 + 'px');
 
 	$('#page-intro').show();
-   	//$('#page-exhibit').show();
+   	// $('#page-exhibit').show();
     
     $('a#scan-exhibit').click(function(){
     	$('.page').hide();
@@ -63,8 +53,8 @@ $(document).ready(function(){
 				    if (response['id'] !=0 ) {
 					    // build exhibit screen
 					    $('h2#x-name').html(response['title']);
-					    $('div#x-description').html(response['description']);
-					    $('#outer').attr("background-image",response['image']);
+					    $('p#x-description').html(response['description']);
+					    $('.outer').css("background-image","url("+response['image']+")");
 					    
 					    $('#page-exhibit').show();
 				    } else {
@@ -83,5 +73,16 @@ $(document).ready(function(){
         $('.page').hide();
         $('#page-intro').show();
     });
+
+    $("#play").click(function(){
+    	if($(this).hasClass("playing")){
+    		$(this).removeClass("playing");
+    		stopSpeech();
+    	} else {
+    		$(this).addClass("playing");
+			startSpeech();
+    	}
+	});
+
 
 });

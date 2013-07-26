@@ -51,7 +51,7 @@ div#pull-arrows {
 	top: 93.33%;
 	margin-top: -50px;
 	display: inline-block;
-	background: url("../img/sageti.png") no-repeat bottom center;
+	background: url("../img/sageti.gif") no-repeat;
 	background-size: 50px 50px;
 }
 
@@ -94,13 +94,14 @@ a#play {
 	background-size: 100% 100%;
 	background-repeat: no-repeat;
 }
-a#stop {
-	display: none !important;
+a#play.playing {
+	background-image: url("../img/stop.png");
 }
 
-div#x-descriotion {
+p#x-description {
 	height: 70%;
-	overflow-y: scroll; 
+	overflow-y: scroll;
+	font-size: 0.5em; 
 }
 /* h2 {
 	border-bottom: 1px solid #b3b3b3;

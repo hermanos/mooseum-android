@@ -44,7 +44,7 @@ div.outer {
 	text-align: center;
 }
 
-div#pull-arrows {
+div.pull-arrows {
 	position: relative;
 	width: 50px;
 	height: 50px;
@@ -115,8 +115,9 @@ div#description-container {
 	height: 80%;
 }
 
-div#arrows-active {
+div.arrows-active {
 	background: url("../img/sageti-jos.gif");
+	background-size: 50px 50px;
 }
 /* h2 {
 	border-bottom: 1px solid #b3b3b3;

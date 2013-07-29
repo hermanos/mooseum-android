@@ -101,11 +101,11 @@ $(document).ready(function(){
 
 	$(".pull-arrows").click(function(){
 		if(!$(this).hasClass("arrows-active")){
-			$(this).addClass("arrows-active")
-			$("#page-exhibit").stop(false,false).animate({scrollTop:5000},1000);
+			$(this).addClass("arrows-active");
+			$("#page-exhibit").stop(false,false).animate({scrollTop:5000},2000);
 		} else {
-			$(this).removeClass("arrows-active")
-			$("#page-exhibit").stop(false,false).animate({scrollBottom:5000},1000);
+			$(this).removeClass("arrows-active");
+			$("#page-exhibit").stop(false,false).animate({scrollTop:-5000},2000);
 		}
 	});
 

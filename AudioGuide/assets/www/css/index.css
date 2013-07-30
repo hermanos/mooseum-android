@@ -26,46 +26,50 @@ div.pages {
 }
 
 div.page a#scan-exhibit {
-	display: block;
+	display: inline-block;
 	width: 70%;
 	margin-left: 15%;
 	background: url("../img/buton.png") no-repeat center center;
 	background-size: 100% 100%;
 }
 
-div.outer {
-	height: 80%;
+div.upper-bar {
+	position: static;
+	background-color: #000;
+	height: 10%;
 	width: 100%;
+}
+
+div.upper-bar h1 {
+	font-family: Helvetica;
+	font-size: 1em;
+	margin: 0px;
+	height: 100%;
 	text-align: center;
-	background-image: url("../img/cow-lat.jpg");
-	background-position: center center;
-	background-repeat: no-repeat;
-	background-size: contain;
-	text-align: center;
 }
 
-div.pull-arrows {
-	position: relative;
-	width: 50px;
-	height: 50px;
-	top: 93.33%;
-	margin-top: -50px;
-	display: inline-block;
-	background: url("../img/sageti.gif") no-repeat;
-	background-size: 50px 50px;
+
+
+div.content-exhibit {
+	width: 100%;
+	height: 75%;
 }
 
-div#title-bar {
-	background-color: #222;
-	position: relative;
-	height: 5%;
-	padding-left: 10px;
-}
-
-div#title-bar h2 {
+h2#x-name {
 	font-family: Helvetica;
 	margin: 0px;
 	font-size: 0.7em;
+	background-color: rgba(0,0,0,0.2);
+	padding: 1% 2%;
+	height: 8%;
+
+}
+
+img#image-exhibit {
+	width: 50%;
+	box-shadow: 1px 1px 3px black;
+	float: left;
+	margin-right: 15px;
 }
 
 div#bottom-bar {
@@ -76,49 +80,100 @@ div#bottom-bar {
 	background-size: 100% 100%;
 	width: 100%;
 	height: 15%;
+	box-shadow: 0px 0px 20px black;
 }
 div#bottom-bar a {
 	display: inline-block;
 	width: 50px;
 }
 
-div#bottom-bar a#back {
-	position: fixed;
-	background-image: url("../img/back.png");
-	background-repeat: no-repeat;
-	background-size: 100% 100%;
-	left: -20px;
-	bottom: 20px;
-}
-a#play {
+a.play {
 	position: relative;
-	left: 50%;
+	/*left: 35%;*/
 	background-image: url("../img/play.png");
 	background-size: 100% 100%;
 	background-repeat: no-repeat;
+	display: inline-block;
 }
-a#play.playing {
+
+a.playing {
+	position: relative;
+	/*left: 35%;*/
 	background-image: url("../img/stop.png");
+	background-size: 100% 100%;
+	background-repeat: no-repeat;
+	display: inline-block;
+}
+
+a#back {
+	position: relative;
+	background-image: url("../img/back-button.png");
+	background-repeat: no-repeat;
+	background-size: 100% 100%;
+	display: inline-block;
+	/*left: 25%;*/
 }
 
 p#x-description {
-	height: 80%;
+	height: 85%;
 	overflow-y: scroll;
 	font-size: 0.6em;
 	line-height: 1.2em;
-	text-indent: 2em; 
-	background-color: #444;
-
+	text-align: justify;
+	padding-top: 5%; 
+	padding-left: 3%;
+	padding-right: 3%;
+	margin: 0px;
+	float: left;
 }
 
-div#description-container {
-	height: 80%;
+div#page-no-exhibit {
+	text-align: center;
 }
 
-div.arrows-active {
-	background: url("../img/sageti-jos.gif");
-	background-size: 50px 50px;
+div#page-no-exhibit h2 {
+	width: 100%;
+	text-align: center;
 }
+
+div.qr-div {
+	width: 100%;
+	text-align: center;
+	margin-bottom: 5px;
+}
+
+img#qr-code {
+	width: 20%;
+	display: inline-block;
+}
+
+a#to-scan {
+	padding: 5px 10px;
+	background-color: #0769AD;
+	display: inline-block;
+	width: 100%;
+	margin-bottom: 5px;
+}
+a#to-page {
+	padding: 5px 10px;
+	background-color: #0769AD;
+	display: inline-block;
+	width: 100%;
+}
+
+a#to-page:link {
+	text-decoration: none;
+	color: #fff;
+}
+a#to-page:visited {
+	text-decoration: none;
+	color: #fff;
+}
+a#to-page:hover {
+	text-decoration: none;
+	color: #01191D;
+}
+
 /* h2 {
 	border-bottom: 1px solid #b3b3b3;
 	font-size: 1.4em; 1.6em;

@@ -1,3 +1,5 @@
+var ref;
+var url;
 function startSpeech(result){
 	var text = $("p#x-description").text();
 	window.plugins.tts.startup(win,fail);
@@ -23,92 +25,109 @@ $(document).ready(function(){
 	$("div#space").height(document.height * 0.15);
 	
 	play_height = '' + 0.15 * document.height + 'px';
-	$('a#play').css('height',play_height);
-	$('a#play').css('width',play_height);
-	$('a#play').css('margin-left','-' + 0.8 * document.height / 5.0 / 2.0 + 'px');
+	$('a.play').css('height',play_height);
+	$('a.play').css('width',play_height);
+	$('a.play').css('margin-left','-' + 0.8 * document.height / 5.0 / 2.0 + 'px');
+	$('a.play').css('left','' + 0.66 * document.width + 'px');
 
-	back_height = '' + 0.1 * document.height + 'px';
-	back_width = '' + 1.1 * (0.1 * document.height) + 'px';
-	$('a#back').css('height',back_height);
-	$('a#back').css('width',back_width);
-	$('a#back').css('left','-'+ 0.3 * (1.1 * (0.1 * document.height))+'px');
-	$('a#back').css('margin-top',''+ 0.9 * (0.1 * document.height)+'px');
-
-	// $('#page-intro').show();
-   	$('#page-exhibit').show();
-    
-	$(document).on("backbutton", function(){
-	    alert('back');
-	});
+	$('a#back').css('height',play_height);
+	$('a#back').css('width',play_height);
+	$('a#back').css('margin-left','-' + 0.8 * document.height / 5.0 / 2.0 + 'px');
+	$('a#back').css('left','' + 0.33 * document.width + 'px');
 	
+	$('#page-intro').show();
+	// $('#page-no-exhibit').show();
+  // $('#page-exhibit').show();
 	
-    $('a#scan-exhibit').click(function(){
-    	$('.page').hide();
-		window.plugins.barcodeScanner.scan( function(result) {			
-			$.ajax({
-			    type: "GET",
-			    url: "http://staging.mooseumapp.com/search.json",
-			    data: { q: result.text },
-			    dataType: 'json',
-			    success: function(response) {
-				    if (response['id'] !=0 ) {
-					    // build exhibit screen
-					    $('h2#x-name').html(response['title']);
-					    $('p#x-description').html(response['description']);
-					    $('.outer').css("background-image","url("+response['image']+")");
-					    
-					    $('#page-exhibit').show();
-				    } else {
-				    	// TODO: daca nu exista, sa i se ofere posibilitatea sa dea click pe un link
-				    	// var ref = window.open('http://apache.org', '_blank', 'location=yes');
-				    	// permissions: app/res/xml/config.xml
-				    	// <plugin name="InAppBrowser" value="org.apache.cordova.InAppBrowser" />
-				    	// ref.addEventListener('exit', callback);
-				    	$('#page-no-exhibit').show();
-				    } 
-				  },
-			    error      : function() {  
-				    alert("Error!");
-			    }
-			});     
-		}, function(error) {
-		});        
+    $('a#scan-exhibit').click(function(){	
+		  scan();      
     });
 
     $('#back').click(function(){
-    	if(!($(this).hasClass("hovered"))){
-    		$(this).addClass("hovered");	
- 			$(this).stop(false,false).animate({'left':'0px'},300);	
-    	} else {
-    		$(this).removeClass("hovered");	
- 			$(this).stop(false,false).animate({'left':'-'+ 0.3 * (1.1 * (0.1 * document.height))+'px'},300);
-    	}
         $('.page').hide();
-        $('#page-intro').show();
+        scan();
     });
 
-    $("#play").click(function(){
+    $("a.play").click(function(){
     	if($(this).hasClass("playing")){
     		$(this).removeClass("playing");
     		stopSpeech();
     	} else {
     		$(this).addClass("playing");
-			startSpeech();
+				startSpeech();
     	}
-	});
+		});
 
+		$("a#to-scan").click(function(){
+			$('#page-no-exhibit').hide();
+	    scan();
+		});
 
-    // Arrow pull
-    $('#page-exhibit').scroll(function(){
-    	if(!$('.pull-arrows').hasClass("arrows-active")){
-			$("#page-exhibit").stop(true,false).animate({scrollTop:$('#page-exhibit').height()},100,function(){
-				$('.pull-arrows').addClass("arrows-active");
-			});
-		 } else {
-			$("#page-exhibit").stop(true,false).animate({scrollTop:-($('#page-exhibit').height())},100,function(){
-				$('.pull-arrows').removeClass("arrows-active");	
-			});	
-		}
+		$("a#to-page").click(function(){
+			$(this).addClass('on-browser');
+			ref = window.open(url, '_blank', 'location=yes');
+		});
 
-    });
 });
+
+
+
+function scan(){
+	window.plugins.barcodeScanner.scan( function(result) {
+			// $('a#to-page').attr('href', result.text);
+			url = result.text;
+			$('.page').hide();	
+			if(result.text != ""){	
+				$.ajax({
+				    type: "GET",
+				    url: "http://staging.mooseumapp.com/search.json",
+				    data: { q: result.text },
+				    dataType: 'json',
+				    success: function(response) {
+					    if (response['id'] !=0 ) {
+						    // build exhibit screen
+						    $('h2#x-name').html(response['title']);
+						    img = "<img src='"+ response['image'] +"' id='image-exhibit'>";
+						    $('p#x-description').html(img + " " + response['description']);				    
+						    $('#page-exhibit').show();
+					    } else {
+					    	// TODO: daca nu exista, sa i se ofere posibilitatea sa dea click pe un link
+					    	// var ref = window.open('http://apache.org', '_blank', 'location=yes');
+					    	// permissions: app/res/xml/config.xml
+					    	// <plugin name="InAppBrowser" value="org.apache.cordova.InAppBrowser" />
+					    	// ref.addEventListener('exit', callback);
+					    	$('#page-no-exhibit').show();
+					    } 
+					  },
+				    error      : function() {  
+					    alert("Error!");
+				    }
+				}); 
+			} else {
+				$('#page-intro').show();
+			}   
+		}, function(error) {
+		});
+
+}
+
+function onLoad() {
+        document.addEventListener("deviceready", onDeviceReady, false);
+}
+
+function onDeviceReady() {
+        // Register the event listener
+        document.addEventListener("backbutton", onBackKeyDown, false);
+        ref.addEventListener("backbutton",ref.close());
+}
+
+    // Handle the back button
+    //
+function onBackKeyDown() {
+	if($('#page-intro').css('display') != 'none'){
+		device.exitApp();
+	} else {
+		scan();
+	}
+}
+//navitagor

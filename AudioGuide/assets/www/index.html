@@ -13,7 +13,7 @@
 	<script type="text/javascript" charset="utf-8" src="js/index.js"></script>
 </head>
 
-<body>
+<body onload="onLoad()">
 	<div class="pages">
 		<div class="page" id="page-intro">
 			<a id="scan-exhibit">
@@ -21,28 +21,36 @@
 		</div>
 			
 		<div class="page" id="page-no-exhibit">
-			<h2>The exhibit is not in our database yet</h2>
+			<div class="upper-bar">
+				<h1>Mooseum</h1>
+			</div>
+			<h2>Sorry! The exhibit is not in our database yet</h2>
+			<div class="qr-div">
+				<img src="img/qr-code.png">
+			</div>
 			<a id="to-scan">Back to scan</a>
+			<a id="to-page">Go to URL</a>
 		</div>
 		
 		<div class="page" id="page-exhibit">
-
-			<div class="outer">
-				<div class="pull-arrows">
-				</div>
-			</div>
-			<div id="title-bar">
-				<h2 id="x-name"></h2>
+			<div class="upper-bar">
+				<h1>Mooseum</h1>
 			</div>
 
-			<div id="description-container">
-				<p id="x-description">
-				</p>
+			<div class="content-exhibit">
+					<h2 id="x-name"></h2>
+
+					<div class="image-full">
+					</div>
+					<p id="x-description">
+						<img src="img/cow-lat.jpg" id="image-exhibit">
+						aklsdflaksdflasdf,asdnf.,asdnf.asdnf.asdf,asdfm.,asdmf.,sadmf.,asmdf.,asmdf.,asdmf.,sadmf.,asmdf,.asdf	aklsdflaksdflasdf,asdnf.,asdnf.asdnf.asdf,asdfm.,asdmf.,sadmf.,asmdf.,asmdf.,asdmf.,sadmf.,asmdf,.asdf	aklsdflaksdflasdf,asdnf.,asdnf.asdnf.asdf,asdfm.,asdmf.,sadmf.,asmdf.,asmdf.,asdmf.,sadmf.,asmdf,.asdf	aklsdflaksdflasdf,asdnf.,asdnf.asdnf.asdf,asdfm.,asdmf.,sadmf.,asmdf.,asmdf.,asdmf.,sadmf.,asmdf,.asdf	aklsdflaksdflasdf,asdnf.,asdnf.asdnf.asdf,asdfm.,asdmf.,sadmf.,asmdf.,asmdf.,asdmf.,sadmf.,asmdf,.asdf	aklsdflaksdflasdf,asdnf.,asdnf.asdnf.asdf,asdfm.,asdmf.,sadmf.,asmdf.,asmdf.,asdmf.,sadmf.,asmdf,.asdf	aklsdflaksdflasdf,asdnf.,asdnf.asdnf.asdf,asdfm.,asdmf.,sadmf.,asmdf.,asmdf.,asdmf.,sadmf.,asmdf,.asdf	aklsdflaksdflasdf,asdnf.,asdnf.asdnf.asdf,asdfm.,asdmf.,sadmf.,asmdf.,asmdf.,asdmf.,sadmf.,asmdf,.asdf	aklsdflaksdflasdf,asdnf.,asdnf.asdnf.asdf,asdfm.,asdmf.,sadmf.,asmdf.,asmdf.,asdmf.,sadmf.,asmdf,.asdf	aklsdflaksdflasdf,asdnf.,asdnf.asdnf.asdf,asdfm.,asdmf.,sadmf.,asmdf.,asmdf.,asdmf.,sadmf.,asmdf,.asdf	aklsdflaksdflasdf,asdnf.,asdnf.asdnf.asdf,asdfm.,asdmf.,sadmf.,asmdf.,asmdf.,asdmf.,sadmf.,asmdf,.asdf	aklsdflaksdflasdf,asdnf.,asdnf.asdnf.asdf,asdfm.,asdmf.,sadmf.,asmdf.,asmdf.,asdmf.,sadmf.,asmdf,.asdf	aklsdflaksdflasdf,asdnf.,asdnf.asdnf.asdf,asdfm.,asdmf.,sadmf.,asmdf.,asmdf.,asdmf.,sadmf.,asmdf,.asdf	aklsdflaksdflasdf,asdnf.,asdnf.asdnf.asdf,asdfm.,asdmf.,sadmf.,asmdf.,asmdf.,asdmf.,sadmf.,asmdf,.asdf	aklsdflaksdflasdf,asdnf.,asdnf.asdnf.asdf,asdfm.,asdmf.,sadmf.,asmdf.,asmdf.,asdmf.,sadmf.,asmdf,.asdf	aklsdflaksdflasdf,asdnf.,asdnf.asdnf.asdf,asdfm.,asdmf.,sadmf.,asmdf.,asmdf.,asdmf.,sadmf.,asmdf,.asdf	aklsdflaksdflasdf,asdnf.,asdnf.asdnf.asdf,asdfm.,asdmf.,sadmf.,asmdf.,asmdf.,asdmf.,sadmf.,asmdf,.asdf	aklsdflaksdflasdf,asdnf.,asdnf.asdnf.asdf,asdfm.,asdmf.,sadmf.,asmdf.,asmdf.,asdmf.,sadmf.,asmdf,.asdf	aklsdflaksdflasdf,asdnf.,asdnf.asdnf.asdf,asdfm.,asdmf.,sadmf.,asmdf.,asmdf.,asdmf.,sadmf.,asmdf,.asdf	aklsdflaksdflasdf,asdnf.,asdnf.asdnf.asdf,asdfm.,asdmf.,sadmf.,asmdf.,asmdf.,asdmf.,sadmf.,asmdf,.asdf	aklsdflaksdflasdf,asdnf.,asdnf.asdnf.asdf,asdfm.,asdmf.,sadmf.,asmdf.,asmdf.,asdmf.,sadmf.,asmdf,.asdf	aklsdflaksdflasdf,asdnf.,asdnf.asdnf.asdf,asdfm.,asdmf.,sadmf.,asmdf.,asmdf.,asdmf.,sadmf.,asmdf,.asdf	aklsdflaksdflasdf,asdnf.,asdnf.asdnf.asdf,asdfm.,asdmf.,sadmf.,asmdf.,asmdf.,asdmf.,sadmf.,asmdf,.asdf	aklsdflaksdflasdf,asdnf.,asdnf.asdnf.asdf,asdfm.,asdmf.,sadmf.,asmdf.,asmdf.,asdmf.,sadmf.,asmdf,.asdf	aklsdflaksdflasdf,asdnf.,asdnf.asdnf.asdf,asdfm.,asdmf.,sadmf.,asmdf.,asmdf.,asdmf.,sadmf.,asmdf,.asdf	aklsdflaksdflasdf,asdnf.,asdnf.asdnf.asdf,asdfm.,asdmf.,sadmf.,asmdf.,asmdf.,asdmf.,sadmf.,asmdf,.asdf	aklsdflaksdflasdf,asdnf.,asdnf.asdnf.asdf,asdfm.,asdmf.,sadmf.,asmdf.,asmdf.,asdmf.,sadmf.,asmdf,.asdf	aklsdflaksdflasdf,asdnf.,asdnf.asdnf.asdf,asdfm.,asdmf.,sadmf.,asmdf.,asmdf.,asdmf.,sadmf.,asmdf,.asdf	aklsdflaksdflasdf,asdnf.,asdnf.asdnf.asdf,asdfm.,asdmf.,sadmf.,asmdf.,asmdf.,asdmf.,sadmf.,asmdf,.asdf
+					</p>
 			</div>
 
 			<div id="bottom-bar">
 				<a id="back"></a>
-				<a id="play"></a>
+				<a class="play"></a>
 			</div>
 			
 

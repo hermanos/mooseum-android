@@ -49,6 +49,11 @@ $(document).ready(function(){
 	$('#page-intro').show();
    	// $('#page-exhibit').show();
     
+	$(document).on("backbutton", function(){
+	    alert('back');
+	});
+	
+	
     $('a#scan-exhibit').click(function(){
     	$('.page').hide();
 		window.plugins.barcodeScanner.scan( function(result) {			
@@ -66,6 +71,11 @@ $(document).ready(function(){
 					    
 					    $('#page-exhibit').show();
 				    } else {
+				    	// TODO: daca nu exista, sa i se ofere posibilitatea sa dea click pe un link
+				    	// var ref = window.open('http://apache.org', '_blank', 'location=yes');
+				    	// permissions: app/res/xml/config.xml
+				    	// <plugin name="InAppBrowser" value="org.apache.cordova.InAppBrowser" />
+				    	// ref.addEventListener('exit', callback);
 				    	$('#page-no-exhibit').show();
 				    } 
 				  },

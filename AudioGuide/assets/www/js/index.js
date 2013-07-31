@@ -22,7 +22,7 @@ function fail(result){
 $(document).ready(function(){
 	
 	$('div.page a#scan-exhibit').height(document.width * 0.70 * 1.17412141);
-	margin = '' + (document.height - $('div.page a#scan-exhibit').height()) / 2 + 'px';
+	margin = '' + (document.height - $('div.page a#scan-exhibit').height()) / 2.7 + 'px';
 	$('div.page#page-intro a').css('margin-top', margin);
 	
 	$("div#space").height(document.height * 0.15);
@@ -99,7 +99,7 @@ function scan(){
 						    $('h2#x-name').html(response['title']);
 						    img = "<img src='"+ response['image'] +"' id='image-exhibit'>";
 						    $('p#x-description').html(img + " " + response['description']);
-						    $(this).addClass("playing");
+						    $('a.play').addClass("playing");
 								startSpeech();				    
 						    $('#page-exhibit').show();
 					    } else {

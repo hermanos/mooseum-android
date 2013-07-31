@@ -16,6 +16,9 @@ function fail(result){
 	alert("Error initializing Text to Speech engine: "+result);
 }
 
+
+
+
 $(document).ready(function(){
 	
 	$('div.page a#scan-exhibit').height(document.width * 0.70 * 1.17412141);
@@ -45,6 +48,7 @@ $(document).ready(function(){
 
     $('#back').click(function(){
         $('.page').hide();
+        stopSpeech();
         scan();
     });
 
@@ -66,6 +70,11 @@ $(document).ready(function(){
 		$("a#to-page").click(function(){
 			$(this).addClass('on-browser');
 			ref = window.open(url, '_blank', 'location=yes');
+		});
+
+		var div = $('div#page-exhibit').Touchable();
+		div.bind('doubleTap', function(e, touch){
+			alert("Is working!");
 		});
 
 });
@@ -127,6 +136,7 @@ function onBackKeyDown() {
 	if($('#page-intro').css('display') != 'none'){
 		device.exitApp();
 	} else {
+		stopSpeech();
 		scan();
 	}
 }

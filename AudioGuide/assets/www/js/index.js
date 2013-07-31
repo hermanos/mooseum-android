@@ -48,6 +48,7 @@ $(document).ready(function(){
 
     $('#back').click(function(){
         $('.page').hide();
+        $('a.play').removeClass("playing");
         stopSpeech();
         scan();
     });
@@ -136,6 +137,7 @@ function onBackKeyDown() {
 	if($('#page-intro').css('display') != 'none'){
 		device.exitApp();
 	} else {
+		$('a.play').removeClass("playing");
 		stopSpeech();
 		scan();
 	}

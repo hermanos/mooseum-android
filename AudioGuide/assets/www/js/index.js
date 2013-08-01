@@ -1,9 +1,11 @@
 var ref;
 var url;
+var lang;
+var exhib;
 function startSpeech(result){
 	var text = $("p#x-description").text();
 	window.plugins.tts.startup(win,fail);
-	window.plugins.tts.setLanguage('en_UK',win,fail);
+	window.plugins.tts.setLanguage(lang.toLowerCase(),win,fail);
 	window.plugins.tts.speak(text,win,fail);
 }
 function stopSpeech(result){
@@ -81,9 +83,25 @@ function bottomBarLandSize(){
 	
 }
 
+
+function stopAndStartSpeech(){
+	if($('a.play').hasClass("playing"))
+	{
+		$('a.play').removeClass("playing");
+		stopSpeech();
+		$('a.play').addClass("playing");
+		startSpeech();
+  } else {
+		$('a.play').addClass("playing");
+		startSpeech();
+  }	
+}
 $(document).ready(function(){
 	
-	
+		if(lang == null)
+		{
+			lang = 'EN';
+		}
 	if(document.width >= document.height) {
 		introPageLandingSize();
 		noExhibitPageTxtLandSize();
@@ -149,7 +167,32 @@ $(document).ready(function(){
 
 		var div = $('div#page-exhibit').Touchable();
 		div.bind('doubleTap', function(e, touch){
-			alert("Is working!");
+			
+			switch (lang){
+			case 'EN':
+				lang = 'IT';
+				break;
+			case 'IT':
+				lang = 'ES';
+				break;
+			case 'ES':
+				lang = 'FR';
+				break;
+			case 'FR':
+				lang = 'DE';
+				break;
+			case 'DE':
+				lang = 'EN';
+				break;
+			default:
+				lang = 'EN';
+				break;
+			}
+
+			$('h2#x-name').html(exhib['title_' + lang + '']);
+			img = "<img src='"+ exhib['image'] +"' id='image-exhibit'>";
+			$('p#x-description').html(img + " " + exhib['description_' + lang + '']);
+			stopAndStartSpeech();
 		});
 
 });
@@ -170,9 +213,10 @@ function scan(){
 				    success: function(response) {
 					    if (response['id'] !=0 ) {
 						    // build exhibit screen
-						    $('h2#x-name').html(response['title']);
+						    exhib = response;
+						    $('h2#x-name').html(response['title_' + lang + '']);
 						    img = "<img src='"+ response['image'] +"' id='image-exhibit'>";
-						    $('p#x-description').html(img + " " + response['description']);
+						    $('p#x-description').html(img + " " + response['description_' + lang + '']);
 								if(!$('a.play').hasClass("playing"))
 								{
 					    		$('a.play').addClass("playing");

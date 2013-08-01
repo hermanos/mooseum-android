@@ -170,6 +170,7 @@ a#to-scan {
 a#to-page {
 	position: relative;
 	color: black;
+	font-size: 1em;
 	padding: 5px 10px;
 	bottom: 0px;
 	left: 0px;

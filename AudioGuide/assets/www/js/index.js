@@ -21,12 +21,46 @@ function fail(result){
 
 $(document).ready(function(){
 	
-	$('div.page a#scan-exhibit').height(document.width * 0.70 * 1.17412141);
-	margin = '' + (document.height - $('div.page a#scan-exhibit').height()) / 2.7 + 'px';
-	$('div.page#page-intro a').css('margin-top', margin);
 	
-	$("div#space").height(document.height * 0.15);
-	
+	if(document.width >= document.height) {
+		$('div.page a#scan-exhibit').height(document.height * 0.50 * 1.17412141);
+		$('div.page a#scan-exhibit').width(document.height * 0.50 * 1.17412141);
+		margin = '' + (document.height - (document.height * 0.70 * 1.17412141)) + 'px';
+		margin_left = '' + (document.width * 0.50 - ((document.height * 0.50 * 1.17412141) / 2)) + 'px';
+		$('div.page#page-intro a').css('margin-top', margin);
+		$('div.page#page-intro a').css('margin-left', margin_left);
+		$("div#space").height(document.height * 0.15);
+  } else {
+		$('div.page a#scan-exhibit').height(document.width * 0.70 * 1.17412141);
+		$('div.page a#scan-exhibit').width(document.width * 0.70 * 1.17412141);
+		margin = '' + (document.height - (document.width * 0.70 * 1.17412141)) / 2.7 + 'px';
+		margin_left = '' + (document.width * 0.50 - ((document.width * 0.70 * 1.17412141) / 2)) + 'px';
+		$('div.page#page-intro a').css('margin-top', margin);
+		$('div.page#page-intro a').css('margin-left', margin_left);
+		$("div#space").height(document.height * 0.15);	
+	}	
+
+		
+	$(window).resize(function() {
+   	if(document.width >= document.height) {
+   		$('div.page a#scan-exhibit').height(document.height * 0.50 * 1.17412141);
+			$('div.page a#scan-exhibit').width(document.height * 0.50 * 1.17412141);
+			margin = '' + (document.height - (document.height * 0.70 * 1.17412141)) + 'px';
+			margin_left = '' + (document.width * 0.50 - ((document.height * 0.50 * 1.17412141) / 2)) + 'px';
+			$('div.page#page-intro a').css('margin-top', margin);
+			$('div.page#page-intro a').css('margin-left', margin_left);
+			$("div#space").height(document.height * 0.15);
+		} else {
+			$('div.page a#scan-exhibit').height(document.width * 0.70 * 1.17412141);
+			$('div.page a#scan-exhibit').width(document.width * 0.70 * 1.17412141);
+			margin = '' + (document.height - (document.width * 0.70 * 1.17412141)) / 2.7 + 'px';
+			margin_left = '' + (document.width * 0.50 - ((document.width * 0.70 * 1.17412141) / 2)) + 'px';
+			$('div.page#page-intro a').css('margin-top', margin);
+			$('div.page#page-intro a').css('margin-left', margin_left);
+			$("div#space").height(document.height * 0.15);
+		}	
+	}); 
+
 	play_height = '' + 0.15 * document.height + 'px';
 	$('a.play').css('height',play_height);
 	$('a.play').css('width',play_height);

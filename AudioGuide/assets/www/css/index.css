@@ -92,15 +92,11 @@ div#bottom-bar a {
 	display: inline-block;
 	width: 50px;
 }
-div#bottom-bar span{
+img#lang-img{
 	position: fixed;
-	width: 20%;
 	display: inline-block;
-	font-size: 0.2em;
-}
-div#bottom-bar img{
-	display: inline-block;
-	width: 10%;
+	width: 40px;
+	top: 0px;
 }
 a.play {
 	position: fixed;

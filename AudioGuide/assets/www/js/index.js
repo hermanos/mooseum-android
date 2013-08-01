@@ -118,7 +118,7 @@ function scan(){
 						    exhib = response;
 						    $('h2#x-name').html(response['title_' + lang + '']);
 						    img = "<img src='"+ response['image'] +"' id='image-exhibit'>";
-						    $('p#x-description').html(img + " " + response['description_' + lang + '']);
+						    $('p#x-description').html(img + " " + response['description_' + lang + ''] + "<br><br><br>");
 								if(!$('a.play').hasClass("playing"))
 								{
 					    		$('a.play').addClass("playing");
@@ -153,7 +153,6 @@ function onLoad() {
 
 function onDeviceReady() {
  	window.plugins.tts.startup(win,fail);
-
 	if(document.width >= document.height) {
 		introPageLandingSize();
 		noExhibitPageTxtLandSize();
@@ -163,6 +162,7 @@ function onDeviceReady() {
 		noExhibitPageTxtPortraitSize();	
 		bottomBarPortraitSize();
 	}	
+
 
 		
 	$(window).resize(function() {
@@ -182,7 +182,12 @@ function onDeviceReady() {
 	$('#page-intro').show();
 	// $('#page-no-exhibit').show();
   // $('#page-exhibit').show();
-	
+	$('img#lang-img').attr('src','./img/' + lang + '.png');
+
+	$('img#lang-img').click(function(){
+		alert('Double tap to switch the language!');
+	});
+
     $('a#scan-exhibit').click(function(){	
 		  scan();      
     });
@@ -243,10 +248,10 @@ function onDeviceReady() {
 				lang = 'EN';
 				break;
 			}
-
+			$('img#lang-img').attr('src','./img/'+ lang +'.png');
 			$('h2#x-name').html(exhib['title_' + lang + '']);
 			img = "<img src='"+ exhib['image'] +"' id='image-exhibit'>";
-			$('p#x-description').html(img + " " + exhib['description_' + lang + '']);
+			$('p#x-description').html(img + " " + exhib['description_' + lang + ''] + "<br><br><br>");
 			stopAndStartSpeech();
 		});
 

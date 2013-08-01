@@ -48,8 +48,11 @@ $(document).ready(function(){
 
     $('#back').click(function(){
         $('.page').hide();
-        $('a.play').removeClass("playing");
-        stopSpeech();
+        if($('a.play').hasClass("playing"))
+				{
+	    		$(this).removeClass("playing");
+	    		stopSpeech();
+		    }
         scan();
     });
 
@@ -99,8 +102,12 @@ function scan(){
 						    $('h2#x-name').html(response['title']);
 						    img = "<img src='"+ response['image'] +"' id='image-exhibit'>";
 						    $('p#x-description').html(img + " " + response['description']);
-						    $('a.play').addClass("playing");
-								startSpeech();				    
+
+								if($('a.play').hasClass("playing"))
+								{
+					    		$(this).removeClass("playing");
+					    		stopSpeech();
+						    }				    
 						    $('#page-exhibit').show();
 					    } else {
 					    	// TODO: daca nu exista, sa i se ofere posibilitatea sa dea click pe un link
@@ -140,8 +147,11 @@ function onBackKeyDown() {
 	if($('#page-intro').css('display') != 'none'){
 		device.exitApp();
 	} else {
-		$('a.play').removeClass("playing");
-		stopSpeech();
+		if($('a.play').hasClass("playing"))
+		{
+    		$(this).removeClass("playing");
+    		stopSpeech();
+    }
 		scan();
 	}
 }

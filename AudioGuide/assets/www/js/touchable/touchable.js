@@ -171,7 +171,7 @@
 					
 					self.inDoubleTap = false;
 					
-				}, 500);
+				}, 250);
 				
 			} else {//we are double tapping
 				

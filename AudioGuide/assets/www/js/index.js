@@ -102,7 +102,7 @@ function scan(){
 						    $('h2#x-name').html(response['title']);
 						    img = "<img src='"+ response['image'] +"' id='image-exhibit'>";
 						    $('p#x-description').html(img + " " + response['description']);
-				    		$(this).addClass("playing");
+				    		$('a.play').addClass("playing");
 				    		startSpeech();
 						    $('#page-exhibit').show();
 					    } else {

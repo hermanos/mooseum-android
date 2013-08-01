@@ -1,11 +1,15 @@
 var ref;
 var url;
-var lang;
+var lang = 'EN';
 var exhib;
 function startSpeech(result){
 	var text = $("p#x-description").text();
-	window.plugins.tts.startup(win,fail);
-	window.plugins.tts.setLanguage(lang.toLowerCase(),win,fail);
+	language = lang;
+	if(language == 'RO')
+		language = 'IT';
+	window.plugins.tts.stop(win, fail);
+
+	window.plugins.tts.setLanguage(language.toLowerCase(),win,fail);
 	window.plugins.tts.speak(text,win,fail);
 }
 function stopSpeech(result){
@@ -96,12 +100,60 @@ function stopAndStartSpeech(){
 		startSpeech();
   }	
 }
-$(document).ready(function(){
-	
-		if(lang == null)
-		{
-			lang = 'EN';
-		}
+
+function scan(){
+	window.plugins.barcodeScanner.scan( function(result) {
+			// $('a#to-page').attr('href', result.text);
+			url = result.text;
+			$('.page').hide();	
+			if(result.text != ""){	
+				$.ajax({
+				    type: "GET",
+				    url: "http://staging.mooseumapp.com/search.json",
+				    data: { q: result.text },
+				    dataType: 'json',
+				    success: function(response) {
+					    if (response['id'] !=0 ) {
+						    // build exhibit screen
+						    exhib = response;
+						    $('h2#x-name').html(response['title_' + lang + '']);
+						    img = "<img src='"+ response['image'] +"' id='image-exhibit'>";
+						    $('p#x-description').html(img + " " + response['description_' + lang + '']);
+								if(!$('a.play').hasClass("playing"))
+								{
+					    		$('a.play').addClass("playing");
+					    		startSpeech();
+						    }				    
+						    $('#page-exhibit').show();
+					    } else {
+					    	// TODO: daca nu exista, sa i se ofere posibilitatea sa dea click pe un link
+					    	// var ref = window.open('http://apache.org', '_blank', 'location=yes');
+					    	// permissions: app/res/xml/config.xml
+					    	// <plugin name="InAppBrowser" value="org.apache.cordova.InAppBrowser" />
+					    	// ref.addEventListener('exit', callback);
+					    	$('#page-no-exhibit').show();
+					    
+					    } 
+					  },
+				    error      : function() {  
+					    alert("Error!");
+				    }
+				}); 
+			} else {
+				$('#page-intro').show();
+			}   
+		}, function(error) {
+		});
+
+}
+
+function onLoad() {
+        document.addEventListener("deviceready", onDeviceReady, false);
+}
+
+function onDeviceReady() {
+ 	window.plugins.tts.startup(win,fail);
+
 	if(document.width >= document.height) {
 		introPageLandingSize();
 		noExhibitPageTxtLandSize();
@@ -173,6 +225,9 @@ $(document).ready(function(){
 				lang = 'IT';
 				break;
 			case 'IT':
+				lang = 'RO';
+				break;
+			case 'RO':
 				lang = 'ES';
 				break;
 			case 'ES':
@@ -195,64 +250,11 @@ $(document).ready(function(){
 			stopAndStartSpeech();
 		});
 
-});
 
 
-
-function scan(){
-	window.plugins.barcodeScanner.scan( function(result) {
-			// $('a#to-page').attr('href', result.text);
-			url = result.text;
-			$('.page').hide();	
-			if(result.text != ""){	
-				$.ajax({
-				    type: "GET",
-				    url: "http://staging.mooseumapp.com/search.json",
-				    data: { q: result.text },
-				    dataType: 'json',
-				    success: function(response) {
-					    if (response['id'] !=0 ) {
-						    // build exhibit screen
-						    exhib = response;
-						    $('h2#x-name').html(response['title_' + lang + '']);
-						    img = "<img src='"+ response['image'] +"' id='image-exhibit'>";
-						    $('p#x-description').html(img + " " + response['description_' + lang + '']);
-								if(!$('a.play').hasClass("playing"))
-								{
-					    		$('a.play').addClass("playing");
-					    		startSpeech();
-						    }				    
-						    $('#page-exhibit').show();
-					    } else {
-					    	// TODO: daca nu exista, sa i se ofere posibilitatea sa dea click pe un link
-					    	// var ref = window.open('http://apache.org', '_blank', 'location=yes');
-					    	// permissions: app/res/xml/config.xml
-					    	// <plugin name="InAppBrowser" value="org.apache.cordova.InAppBrowser" />
-					    	// ref.addEventListener('exit', callback);
-					    	$('#page-no-exhibit').show();
-					    
-					    } 
-					  },
-				    error      : function() {  
-					    alert("Error!");
-				    }
-				}); 
-			} else {
-				$('#page-intro').show();
-			}   
-		}, function(error) {
-		});
-
-}
-
-function onLoad() {
-        document.addEventListener("deviceready", onDeviceReady, false);
-}
-
-function onDeviceReady() {
-        // Register the event listener
         document.addEventListener("backbutton", onBackKeyDown, false);
         ref.addEventListener("backbutton",ref.close());
+
 }
 
     // Handle the back button

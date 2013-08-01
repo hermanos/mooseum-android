@@ -102,12 +102,8 @@ function scan(){
 						    $('h2#x-name').html(response['title']);
 						    img = "<img src='"+ response['image'] +"' id='image-exhibit'>";
 						    $('p#x-description').html(img + " " + response['description']);
-
-								if($('a.play').hasClass("playing"))
-								{
-					    		$(this).removeClass("playing");
-					    		stopSpeech();
-						    }				    
+				    		$(this).addClass("playing");
+				    		startSpeech();
 						    $('#page-exhibit').show();
 					    } else {
 					    	// TODO: daca nu exista, sa i se ofere posibilitatea sa dea click pe un link

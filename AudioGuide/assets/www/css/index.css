@@ -94,30 +94,27 @@ div#bottom-bar a {
 }
 
 a.play {
-	position: relative;
-	/*left: 35%;*/
+	position: fixed;
 	background-image: url("../img/play.png");
 	background-size: 100% 100%;
 	background-repeat: no-repeat;
-	display: inline-block;
+
 }
 
 a.playing {
-	position: relative;
-	/*left: 35%;*/
+	position: fixed;
 	background-image: url("../img/stop.png");
 	background-size: 100% 100%;
 	background-repeat: no-repeat;
-	display: inline-block;
+
 }
 
 a#back {
-	position: relative;
+	position: fixed;
 	background-image: url("../img/back-button.png");
 	background-repeat: no-repeat;
 	background-size: 100% 100%;
-	display: inline-block;
-	/*left: 25%;*/
+
 }
 
 p#x-description {

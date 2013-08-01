@@ -18,18 +18,18 @@ function fail(result){
 
 function introPageLandingSize(){
 	$('div.page a#scan-exhibit').height(document.height * 0.50 * 1.17412141);
-	$('div.page a#scan-exhibit').width(document.height * 0.50 * 1.17412141);
+	$('div.page a#scan-exhibit').width(0.9 * document.height * 0.50 * 1.17412141);
 	margin = '' + (document.height - (document.height * 0.70 * 1.17412141)) + 'px';
-	margin_left = '' + (document.width * 0.50 - ((document.height * 0.50 * 1.17412141) / 2)) + 'px';
+	margin_left = '' + (document.width * 0.50 - ((0.9 * document.height * 0.50 * 1.17412141) / 2)) + 'px';
 	$('div.page#page-intro a').css('margin-top', margin);
 	$('div.page#page-intro a').css('margin-left', margin_left);
 	$("div#space").height(document.height * 0.15);
 }
 function introPagePortraitSize(){
 	$('div.page a#scan-exhibit').height(document.width * 0.70 * 1.17412141);
-	$('div.page a#scan-exhibit').width(document.width * 0.70 * 1.17412141);
+	$('div.page a#scan-exhibit').width(0.9 * document.width * 0.70 * 1.17412141);
 	margin = '' + (document.height - (document.width * 0.70 * 1.17412141)) / 2.7 + 'px';
-	margin_left = '' + (document.width * 0.50 - ((document.width * 0.70 * 1.17412141) / 2)) + 'px';
+	margin_left = '' + (document.width * 0.50 - ((0.9 * document.width * 0.70 * 1.17412141) / 2)) + 'px';
 	$('div.page#page-intro a').css('margin-top', margin);
 	$('div.page#page-intro a').css('margin-left', margin_left);
 	$("div#space").height(document.height * 0.15);
@@ -47,6 +47,39 @@ function noExhibitPageTxtLandSize(){
 	$('#to-page').css('font-size', '0.5em');
 }
 
+function bottomBarPortraitSize(){
+	play_height = '' + 0.15 * document.height + 'px';
+	$('a.play').css('height',play_height);
+	$('a.play').css('width',play_height);
+	$('a.play').css('margin-left','-' + 0.15 * document.height / 2 + 'px');
+	$('a.play').css('left','' + 0.66 * document.width + 'px');
+	$('a.play').css('top','' + (document.height - (document.height * 0.15)) + 'px');
+	
+
+	$('a#back').css('height',play_height);
+	$('a#back').css('width',play_height);
+	$('a#back').css('margin-left','-' + 0.15 * document.height / 2 + 'px');
+	$('a#back').css('left','' + 0.33 * document.width + 'px');
+	$('a#back').css('top','' + (document.height - (document.height * 0.15)) + 'px');
+	
+}
+
+function bottomBarLandSize(){
+	play_height = '' + 0.15 * document.height + 'px';
+	$('a.play').css('height',play_height);
+	$('a.play').css('width',play_height);
+	$('a.play').css('margin-left','-' + 0.15 * document.height / 2 + 'px');
+	$('a.play').css('left','' + 0.66 * document.width + 'px');
+	$('a.play').css('top','' + (document.height - (document.height * 0.15)) + 'px');
+	
+
+	$('a#back').css('height',play_height);
+	$('a#back').css('width',play_height);
+	$('a#back').css('margin-left','-' + 0.15 * document.height / 2 + 'px');
+	$('a#back').css('left','' + 0.33 * document.width + 'px');
+	$('a#back').css('top','' + (document.height - (document.height * 0.15)) + 'px');
+	
+}
 
 $(document).ready(function(){
 	
@@ -54,9 +87,11 @@ $(document).ready(function(){
 	if(document.width >= document.height) {
 		introPageLandingSize();
 		noExhibitPageTxtLandSize();
+		bottomBarLandSize();
   } else {
 		introPagePortraitSize();
 		noExhibitPageTxtPortraitSize();	
+		bottomBarPortraitSize();
 	}	
 
 		
@@ -64,22 +99,15 @@ $(document).ready(function(){
    	if(document.width >= document.height) {
 			introPageLandingSize();
 			noExhibitPageTxtLandSize();
+			bottomBarLandSize();
 	  } else {
 			introPagePortraitSize();
-			noExhibitPageTxtPortraitSize();		
+			noExhibitPageTxtPortraitSize();	
+			bottomBarPortraitSize();	
 		}	
 	}); 
 
-	play_height = '' + 0.15 * document.height + 'px';
-	$('a.play').css('height',play_height);
-	$('a.play').css('width',play_height);
-	$('a.play').css('margin-left','-' + 0.8 * document.height / 5.0 / 2.0 + 'px');
-	$('a.play').css('left','' + 0.66 * document.width + 'px');
-
-	$('a#back').css('height',play_height);
-	$('a#back').css('width',play_height);
-	$('a#back').css('margin-left','-' + 0.8 * document.height / 5.0 / 2.0 + 'px');
-	$('a#back').css('left','' + 0.33 * document.width + 'px');
+	
 	
 	$('#page-intro').show();
 	// $('#page-no-exhibit').show();

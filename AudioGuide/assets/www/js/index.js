@@ -183,10 +183,18 @@ function onDeviceReady() {
 	// $('#page-no-exhibit').show();
   // $('#page-exhibit').show();
 	$('img#lang-img').attr('src','./img/' + lang + '.png');
-
-	$('img#lang-img').click(function(){
-		alert('Double tap to switch the language!');
-	});
+	if($('img#lang-img').hasClass('lang-active')){	
+	} else {
+		$('img#lang-img').click(function(){
+			$('img#lang-img').addClass('lang-active');
+			$('#lang-box').stop(true,true).show(300,function(){
+				setTimeout(function(){
+					$('#lang-box').hide(300);
+				},2000);
+			});	
+		});
+	}
+	
 
     $('a#scan-exhibit').click(function(){	
 		  scan();      
